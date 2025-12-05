@@ -31,6 +31,36 @@
     --space-xl: 3rem;
 }
 
+/* 夜间模式配色方案 */
+body.dark {
+    /* 深色科技感配色 */
+    --color-bg: #0F172A;
+    --color-card: #1E293B;
+    --color-primary: #3B82F6;
+    --color-secondary: #8B5CF6;
+    --color-accent: #10B981;
+    --color-text: #F1F5F9;
+    --color-text-light: #94A3B8;
+    --color-text-dark: #FFFFFF;
+    --color-border: rgba(59, 130, 246, 0.3);
+    --color-hover: rgba(59, 130, 246, 0.15);
+    
+    /* 深色阴影 */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 平滑的主题切换动画 */
+body {
+    transition: all 0.3s ease;
+}
+
+body * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -93,13 +123,65 @@ body {
 
 /* ===== 导航栏样式 ===== */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--color-card);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+}
+
+/* 夜间模式切换按钮 */
+.theme-toggle {
+    background-color: var(--color-primary);
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    margin-left: 0.8rem;
+    box-shadow: var(--shadow-md);
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+}
+
+/* 主题切换动画效果 */
+.theme-toggle i {
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+body.dark .theme-toggle {
+    background-color: var(--color-secondary);
+}
+
+body.dark .theme-toggle i {
+    transform: rotate(360deg);
+}
+
+/* 移动端主题切换按钮样式 */
+.nav-mobile .theme-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--space-sm);
+    margin-left: 0;
+    padding: var(--space-sm);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
 }
 
 .nav-container {
@@ -172,12 +254,12 @@ body {
     cursor: pointer;
     padding: var(--space-xs);
 }
-
+/* 移动端下拉菜单 */
 .nav-mobile {
     display: none;
     flex-direction: column;
     padding: var(--space-md);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--color-card);
     border-top: 1px solid var(--color-border);
 }
 
@@ -205,7 +287,7 @@ body {
     justify-content: center;
     text-align: center;
     padding-top: 80px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F0F4F8 100%);
+    background: linear-gradient(135deg, var(--color-card) 0%, var(--color-bg) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -378,7 +460,7 @@ body {
 
 /* ===== 常用工具区域 ===== */
 .tools-section {
-    background: linear-gradient(to bottom, transparent, rgba(240, 244, 248, 0.8));
+    background: linear-gradient(to bottom, transparent, var(--color-bg));
 }
 
 .tools-container {
@@ -474,7 +556,7 @@ body {
 
 /* ===== 底部栏 ===== */
 .footer {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--color-card);
     border-top: 1px solid var(--color-border);
     padding: var(--space-md) 0;
 }
