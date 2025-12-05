@@ -17,7 +17,67 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 添加视差滚动效果
     initParallax();
+    
+    // 初始化夜间模式切换
+    initThemeToggle();
 });
+
+// 夜间模式切换功能
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    
+    // 检查本地存储中的主题偏好
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // 初始化主题
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.classList.add('dark');
+        updateThemeIcon(true);
+    }
+    
+    // 更新主题图标
+    function updateThemeIcon(isDark) {
+        const icons = document.querySelectorAll('.theme-toggle i');
+        icons.forEach(icon => {
+            if (isDark) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    }
+    
+    // 主题切换逻辑
+    function toggleTheme() {
+        const isDark = body.classList.toggle('dark');
+        updateThemeIcon(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    
+    // 桌面端按钮事件
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // 移动端按钮事件
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // 监听系统主题变化
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            const isDark = e.matches;
+            body.classList.toggle('dark', isDark);
+            updateThemeIcon(isDark);
+        }
+    });
+}
 
 // 移动端菜单切换
 function initMobileMenu() {
