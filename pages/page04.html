@@ -3,94 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代码转换器 - 星宇·航图工具</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>智能导航看板 - 暂未开发</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .back-home {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
-    <!-- 简化导航 -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-brand">
-                <span class="nav-icon">🪐</span>
-                <span class="nav-title">代码转换器</span>
-            </a>
-            <a href="../index.html#tools" class="nav-link">
-                <i class="fas fa-arrow-left"></i> 返回工具页
-            </a>
-        </div>
-    </nav>
-
-    <!-- 工具内容 -->
-    <main class="container" style="padding-top: 100px; min-height: 80vh;">
-        <div class="tool-page-header">
-            <div class="tool-page-icon">
-                <i class="fas fa-terminal"></i>
-            </div>
-            <div>
-                <h1>代码转换器</h1>
-                <p>多种编程语言间的代码转换工具</p>
-            </div>
-        </div>
-        
-        <div class="tool-page-content">
-            <div class="tool-demo-card">
-                <h3><i class="fas fa-play-circle"></i> 在线演示</h3>
-                <p>此功能正在开发中，即将上线...</p>
-                <div class="demo-placeholder">
-                    <i class="fas fa-cogs"></i>
-                    <p>转换器界面加载中</p>
-                </div>
-            </div>
-            
-            <div class="tool-info-card">
-                <h3><i class="fas fa-info-circle"></i> 功能特性</h3>
-                <ul>
-                    <li>支持 JavaScript、Python、Java、C++ 等主流语言</li>
-                    <li>语法高亮与错误检测</li>
-                    <li>一键复制转换结果</li>
-                    <li>历史记录保存</li>
-                </ul>
-            </div>
-            
-            <div class="tool-info-card">
-                <h3><i class="fas fa-bolt"></i> 使用场景</h3>
-                <ul>
-                    <li>学习不同语言语法对比</li>
-                    <li>快速迁移项目到新语言</li>
-                    <li>代码示例的多语言生成</li>
-                    <li>教学与演示材料制作</li>
-                </ul>
-            </div>
-        </div>
-    </main>
-
-    <!-- 底部 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-time">
-                    <i class="far fa-clock"></i>
-                    <span id="currentTime">正在加载时间...</span>
-                </div>
-                <div class="footer-info">
-                    <p>© 2024 星宇·航图 | XY's Blog 保留所有权利</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // 简单的时间显示
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleString('zh-CN');
-            const timeElement = document.getElementById('currentTime');
-            if (timeElement) timeElement.textContent = timeString;
-        }
-        updateTime();
-        setInterval(updateTime, 1000);
-    </script>
+    <div class="container">
+        <h1>🔍 暂未开发 🔍</h1>
+        <p>该页面功能正在开发中，敬请期待...</p>
+        <a href="../index.html" class="back-home">🏠 回到主页</a>
+    </div>
 </body>
 </html>
