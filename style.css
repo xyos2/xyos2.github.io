@@ -569,6 +569,64 @@ body.dark .theme-toggle i {
     gap: var(--space-md);
 }
 
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.old-version-btn {
+    display: inline-block;
+    position: relative;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.old-version-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-bottom: 0.5rem;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0.5rem;
+    border-width: 0.3rem;
+    border-style: solid;
+    border-color: var(--color-primary) transparent transparent transparent;
+}
+
+.old-version-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
 .footer-time {
     display: flex;
     align-items: center;
