@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星宇·航图 | XY's Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- 左侧标题 -->
+            <a href="#" class="nav-brand" onclick="window.scrollTo(0, 0); location.reload(true); return false;">
+                <span class="nav-title">星宇·航图 | XY's Blog</span>
+            </a>
+            
+            <!-- 桌面端导航菜单 -->
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">首页</a>
+                <a href="#works" class="nav-link">我的作品</a>
+                <a href="#tools" class="nav-link">常用工具</a>
+                
+                <!-- 第三方链接 - 需要修改的位置 -->
+                <!-- 修改说明：将以下href的值改为你的实际笔记页面地址 -->
+                <a href="https://juejin.cn/user/2232425500384467/posts" class="nav-link nav-external" target="_blank">
+                    <i class="fas fa-book-open"></i> 我的笔记
+                </a>
+                
+                <!-- 第三方链接 - 需要修改的位置 -->
+                <!-- 修改说明：将以下href的值改为你的微信相关链接 -->
+                <a href="https://xy-12306.netlify.app/images/weixin.png" class="nav-link nav-external" target="_blank">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                
+                <!-- 第三方链接 - 需要修改的位置 -->
+                <!-- 修改说明：将以下href的值改为你的抖音相关链接 -->
+                <a href="https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE?from_tab_name=main" class="nav-link nav-external" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <!-- 第三方链接 - GitHub跳转 -->
+                <a href="https://github.com/xyos2" class="nav-link nav-external" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            
+            <!-- 移动端汉堡菜单按钮 -->
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端下拉菜单 -->
+        <div class="nav-mobile" id="navMobile">
+            <a href="#home" class="nav-mobile-link">首页</a>
+            <a href="#works" class="nav-mobile-link">我的作品</a>
+            <a href="#tools" class="nav-mobile-link">常用工具</a>
+            
+            <!-- 第三方链接 - 需要修改的位置 -->
+            <a href="https://juejin.cn/user/2232425500384467/posts" class="nav-mobile-link nav-external" target="_blank">
+                <i class="fas fa-book-open"></i> 我的笔记
+            </a>
+            
+            <!-- 第三方链接 - 需要修改的位置 -->
+            <a href="https://xy-12306.netlify.app/images/weixin.png" class="nav-mobile-link nav-external" target="_blank">
+                <i class="fab fa-weixin"></i> 微信
+            </a>
+            
+            <!-- 第三方链接 - 需要修改的位置 -->
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE?from_tab_name=main" class="nav-mobile-link nav-external" target="_blank">
+                <i class="fab fa-tiktok"></i> 抖音
+            </a>
+            <!-- 第三方链接 - GitHub跳转 -->
+            <a href="https://github.com/xyos2" class="nav-mobile-link nav-external" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">探索数字宇宙的每一颗星辰</h1>
+            <p class="hero-subtitle">前端开发 · 技术探索 · 创意实现</p>
+            <div class="hero-scroll" id="scrollToWorks">
+                <span>向下探索</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我的作品区域 -->
+    <section id="works" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-rocket"></i>
+                我的作品
+            </h2>
+            <p class="section-subtitle">点击卡片查看项目详情，每个都是精心打造的数字产品</p>
+            
+            <div class="works-grid">
+                <!-- 9个作品卡片 -->
+                <!-- 第三方链接 - 所有作品卡片点击都跳转到掘金，需要修改 -->
+                <div class="work-card" data-link="https://ai.feishu.cn/wiki/WPrawSK5Pijs3EkVdqGc0HrBnih">
+                    <div class="work-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="work-title">xy的笔记合集</h3>
+                    <p class="work-desc">飞书云文档-Linux相关笔记</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://juejin.cn/post/7452652375342874624">
+                    <div class="work-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3 class="work-title">CentOS 7 安装与配置 Docker</h3>
+                    <p class="work-desc">掘金社区发布的Docker安装教程</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://juejin.cn/post/7449325898703683595">
+                    <div class="work-icon">
+                        <i class="fab fa-vimeo"></i>
+                    </div>
+                    <h3 class="work-title">Vmware虚拟机中安装CentOS7</h3>
+                    <p class="work-desc">超详图文教程</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://ai.feishu.cn/wiki/IFkFwe0rrirh3ykW0fqcxQJYnHd">
+                    <div class="work-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="work-title">Docker和K8s部署</h3>
+                    <p class="work-desc">基础部署笔记-电脑端打开</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://juejin.cn/post/7453073341840113700">
+                    <div class="work-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="work-title">Docker国内镜像源/加速地址</h3>
+                    <p class="work-desc">国内Docker镜像源推荐</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://www.kdocs.cn/l/crZCc5XhCKvd">
+                    <div class="work-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="work-title">壁纸网站链接</h3>
+                    <p class="work-desc">壁纸合集</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://bbs.huaweicloud.com/blogs/236976">
+                    <div class="work-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="work-title">linux常用命令大全</h3>
+                    <p class="work-desc">网页笔记</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://www.taijux.com/">
+                    <div class="work-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="work-title">热播电影</h3>
+                    <p class="work-desc">泰剧网</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+                
+                <div class="work-card" data-link="https://juejin.cn/user/2232425500384467/posts">
+                    <div class="work-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="work-title">我的掘金社区</h3>
+                    <p class="work-desc">掘金主页</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 
+            <div class="modify-note">
+                <p><i class="fas fa-info-circle"></i> 修改说明：所有作品卡片的跳转链接都在对应的data-link属性中，修改后需同步更新script.js</p>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- 常用工具区域 -->
+    <section id="tools" class="section tools-section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i>
+                常用工具
+            </h2>
+            <p class="section-subtitle">精心挑选的效率工具，点击卡片进入详情页面</p>
+            
+            <div class="tools-container">
+                <!-- 工具卡片 -->
+                <div class="tools-grid">
+                    <!-- 6个工具卡片 - 跳转到pages文件夹中的页面 -->
+                    <a href="pages/page01.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <span class="tool-badge">热门</span>
+                        </div>
+                        <h3 class="tool-title">代码转换器</h3>
+                        <p class="tool-desc">多种编程语言间的代码转换工具</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">开发</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page02.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <span class="tool-badge">设计</span>
+                        </div>
+                        <h3 class="tool-title">配色生成</h3>
+                        <p class="tool-desc">智能配色方案生成与导出</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">设计</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page03.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="tool-title">图片优化</h3>
+                        <p class="tool-desc">在线图片压缩与格式转换</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">效率</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page04.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                        </div>
+                        <h3 class="tool-title">快捷键速查</h3>
+                        <p class="tool-desc">常用软件的快捷键参考</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">效率</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page05.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <span class="tool-badge">实用</span>
+                        </div>
+                        <h3 class="tool-title">单位换算</h3>
+                        <p class="tool-desc">长度、重量、温度等单位换算</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">工具</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <a href="pages/page06.html" class="tool-card">
+                        <div class="tool-header">
+                            <div class="tool-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <h3 class="tool-title">二维码生成</h3>
+                        <p class="tool-desc">自定义内容二维码生成器</p>
+                        <div class="tool-footer">
+                            <span class="tool-tag">工具</span>
+                            <span class="tool-arrow">→</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 
+            <div class="modify-note">
+                <p><i class="fas fa-info-circle"></i> 修改说明：工具卡片链接为相对路径，确保pages文件夹中有对应的page01.html到page06.html文件</p>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- 底部栏 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2025 星宇·航图 | XY's Blog 保留所有权利</p>
+                </div>
+                <div class="footer-time">
+                    <i class="far fa-clock"></i>
+                    <span id="currentTime">正在加载时间...</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
