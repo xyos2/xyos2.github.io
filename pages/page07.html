@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能导航看板</title>
+    <style>
+        /* 引入 Google Fonts 的 Poppins 字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* 根变量定义 */
+        :root {
+            --primary-color: #007BFF; /* 主色调 */
+            --bg-gradient: linear-gradient(135deg, #e6f7ff 0%, #f2f9ff 100%); /* 背景渐变 */
+            --card-min-width: 260px; /* 卡片最小宽度 */
+        }
+
+        /* 基础样式 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        /* 页面标题样式 */
+        .page-title {
+            font-size: clamp(2em, 5vw, 3em);
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease;
+        }
+
+        /* 分隔线样式 */
+        .separator {
+            width: 70%;
+            max-width: 900px;
+            height: 2px;
+            background-color: rgba(0, 123, 255, 0.2);
+            margin-bottom: 40px;
+        }
+
+        /* 卡片网格容器样式 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 280px), 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: clamp(60px, 8vw, 100px);
+        }
+
+        /* 卡片样式 */
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            padding: clamp(20px, 2.5vw, 30px);
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: clamp(1.2em, 2vw, 1.6em);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 卡片悬停前的伪元素样式 */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 123, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 卡片悬停样式 */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 卡片悬停时伪元素样式 */
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* 时间显示区域样式 */
+        .time-display {
+            position: fixed;
+            bottom: clamp(20px, 2vw, 30px);
+            right: clamp(20px, 2vw, 30px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: clamp(10px, 1.5vw, 12px) clamp(15px, 2vw, 18px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: clamp(0.9em, 1.5vw, 1.2em);
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            cursor: pointer; /* 鼠标悬停时显示为可点击 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 时间显示区域悬停效果 */
+        .time-display:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+        }
+
+        /* 呼吸灯样式 */
+        .breathing-light {
+            width: clamp(8px, 1vw, 12px);
+            height: clamp(8px, 1vw, 12px);
+            background-color: #00FF00;
+            border-radius: 50%;
+            margin-right: clamp(8px, 1vw, 12px);
+            animation: breathing 2s infinite;
+        }
+
+        /* 时间放大效果 */
+        .time-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* 修改为透明70% */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100; /* 确保在最上层 */
+            font-size: 8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer; /* 点击关闭 */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* 显示时间放大效果 */
+        .time-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 定义呼吸灯的呼吸动画效果 */
+        @keyframes breathing {
+            0% {
+                box-shadow: 0 0 3px #00FF00, 0 0 6px #00FF00, 0 0 9px #00FF00;
+                opacity: 0.5;
+            }
+            50% {
+                box-shadow: 0 0 9px #00FF00, 0 0 15px #00FF00, 0 0 21px #00FF00;
+                opacity: 1;
+            }
+            100% {
+                box-shadow: 0 0 3px #00FF00, 0 0 6px #00FF00, 0 0 9px #00FF00;
+                opacity: 0.5;
+            }
+        }
+
+        /* 定义标题的淡入动画效果 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 定义放大后时间的缩放动画 */
+        @keyframes timeScale {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* 应用缩放动画到放大后的时间元素 */
+        #fullscreen-time {
+            animation: timeScale 2s infinite;
+        }
+
+        /* 媒体查询，适配小屏幕设备 */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2em;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+
+            .card {
+                font-size: 1.4em;
+                padding: 25px;
+            }
+
+            .time-display {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+
+            .time-overlay {
+                font-size: 4rem; /* 移动端字体缩小 */
+            }
+        }
+
+        /* 小屏手机优化（≤480px） */
+        @media (max-width: 480px) {
+            .time-overlay {
+                font-size: 3rem; /* 小屏手机字体进一步缩小 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面标题 -->
+    <div class="page-title">智能导航看板</div>
+    <!-- 分隔线 -->
+    <div class="separator"></div>
+    <!-- 卡片网格容器 -->
+    <div class="card-grid">
+        <a href="https://juejin.cn/column/7448224551277969447" class="card" target="_blank" rel="noopener noreferrer">《Docker笔记专栏》</a>
+        <a href="https://www.yuque.com/xy12306/docker/gt611idl667ez0lv?singleDoc# 《Docker和k8s笔记合集》" class="card" target="_blank" rel="noopener noreferrer">《k8s笔记合集》</a>
+        <a href="https://www.jspoo.com/" class="card" target="_blank" rel="noopener noreferrer">《聚神铺导航》</a>
+        <a href="https://www.yuque.com/xy12306/wvvv7e/pvr26q1x0ouenttg?singleDoc# 《实用网页合集》" class="card" target="_blank" rel="noopener noreferrer">《实用网页合集》</a>
+        <a href="https://kdocs.cn/l/caIQQKIJ96K2" class="card" target="_blank" rel="noopener noreferrer">《windows优化工具》</a>
+        <a href="https://hcnsseyzsztm.feishu.cn/wiki/NMOXwHvRoijRDSkBKUzcq25enzf" class="card" target="_blank" rel="noopener noreferrer">《服务器搭建笔记》</a>
+        <a href="https://ai.com" class="card" target="_blank" rel="noopener noreferrer">《Deepseek》</a>
+        <a href="https://hcnsseyzsztm.feishu.cn/wiki/WPrawSK5Pijs3EkVdqGc0HrBnih" class="card">👉👉 我的笔记合集 👈👈</a>
+        <a href="../index.html" class="card">🔍🔍 回到主页 🔍🔍</a>
+    </div>
+    <!-- 时间显示区域 -->
+    <div class="time-display" id="time-display">
+        <!-- 呼吸灯 -->
+        <div class="breathing-light"></div>
+        <!-- 显示当前时间 -->
+        <span id="current-time"></span>
+    </div>
+
+    <!-- 时间放大效果 -->
+    <div class="time-overlay" id="time-overlay">
+        <span id="fullscreen-time"></span>
+    </div>
+
+    <script>
+        // 更新时间函数
+        const updateTime = () => {
+            const d = new Date();
+            const fullTime = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+            const currentTime = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
+            document.getElementById('current-time').textContent = fullTime;
+            document.getElementById('fullscreen-time').textContent = currentTime; // 只显示当前时间（不显示年月日）
+        };
+
+        // 页面加载时更新时间
+        updateTime();
+        // 每秒更新一次时间
+        setInterval(updateTime, 1000);
+
+        // 获取时间显示区域和时间放大区域
+        const timeDisplay = document.getElementById('time-display');
+        const timeOverlay = document.getElementById('time-overlay');
+
+        // 点击时间显示区域，放大时间
+        timeDisplay.addEventListener('click', () => {
+            timeOverlay.classList.add('active');
+        });
+
+        // 点击时间放大区域或按 ESC 键，关闭放大效果
+        timeOverlay.addEventListener('click', () => {
+            timeOverlay.classList.remove('active');
+        });
+
+        // 监听 ESC 键
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                timeOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

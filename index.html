@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <!-- 左侧标题 -->
-            <a href="#" class="nav-brand" onclick="window.scrollTo(0, 0); location.reload(true); return false;">
+            <a href="index.html" class="nav-brand">
                 <span class="nav-title">星宇·航图 | XY's Blog</span>
             </a>
             
@@ -26,24 +26,20 @@
                 <a href="#works" class="nav-link">我的作品</a>
                 <a href="#tools" class="nav-link">常用工具</a>
                 
-                <!-- 第三方链接 - 需要修改的位置 -->
-                <!-- 修改说明：将以下href的值改为你的实际笔记页面地址 -->
                 <a href="https://juejin.cn/user/2232425500384467/posts" class="nav-link nav-external" target="_blank">
                     <i class="fas fa-book-open"></i> 我的笔记
                 </a>
                 
-                <!-- 第三方链接 - 需要修改的位置 -->
-                <!-- 修改说明：将以下href的值改为你的微信相关链接 -->
-                <a href="https://xy-12306.netlify.app/images/weixin.png" class="nav-link nav-external" target="_blank">
+                <!-- 微信联系方式 - 点击弹出图片 -->
+                <a href="javascript:void(0)" class="nav-link nav-external" id="weixinBtn">
                     <i class="fab fa-weixin"></i>
                 </a>
                 
-                <!-- 第三方链接 - 需要修改的位置 -->
-                <!-- 修改说明：将以下href的值改为你的抖音相关链接 -->
+                <!-- 第三方链接 - 抖音 -->
                 <a href="https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE?from_tab_name=main" class="nav-link nav-external" target="_blank">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                <!-- 第三方链接 - GitHub跳转 -->
+                <!-- 第三方链接 - GitHub -->
                 <a href="https://github.com/xyos2" class="nav-link nav-external" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
@@ -66,21 +62,18 @@
             <a href="#works" class="nav-mobile-link">我的作品</a>
             <a href="#tools" class="nav-mobile-link">常用工具</a>
             
-            <!-- 第三方链接 - 需要修改的位置 -->
             <a href="https://juejin.cn/user/2232425500384467/posts" class="nav-mobile-link nav-external" target="_blank">
                 <i class="fas fa-book-open"></i> 我的笔记
             </a>
             
-            <!-- 第三方链接 - 需要修改的位置 -->
-            <a href="https://xy-12306.netlify.app/images/weixin.png" class="nav-mobile-link nav-external" target="_blank">
+            <!-- 微信联系方式 - 点击弹出图片 -->
+            <a href="javascript:void(0)" class="nav-mobile-link nav-external" id="weixinBtnMobile">
                 <i class="fab fa-weixin"></i> 微信
             </a>
             
-            <!-- 第三方链接 - 需要修改的位置 -->
             <a href="https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE?from_tab_name=main" class="nav-mobile-link nav-external" target="_blank">
                 <i class="fab fa-tiktok"></i> 抖音
             </a>
-            <!-- 第三方链接 - GitHub跳转 -->
             <a href="https://github.com/xyos2" class="nav-mobile-link nav-external" target="_blank">
                 <i class="fab fa-github"></i> GitHub
             </a>
@@ -114,8 +107,7 @@
             <p class="section-subtitle">点击卡片查看项目详情，每个都是精心打造的数字产品</p>
             
             <div class="works-grid">
-                <!-- 9个作品卡片 -->
-                <!-- 第三方链接 - 所有作品卡片点击都跳转到掘金，需要修改 -->
+                <!-- 作品卡片 - data-link 属性为跳转链接 -->
                 <div class="work-card" data-link="https://ai.feishu.cn/wiki/WPrawSK5Pijs3EkVdqGc0HrBnih">
                     <div class="work-icon">
                         <i class="fas fa-book"></i>
@@ -193,12 +185,12 @@
                     </div>
                 </div>
                 
-                <div class="work-card" data-link="https://www.taijux.com/">
+                <div class="work-card" data-link="https://www.kdocs.cn/l/cuIItKXdpuTO">
                     <div class="work-icon">
                         <i class="fas fa-film"></i>
                     </div>
-                    <h3 class="work-title">热播电影</h3>
-                    <p class="work-desc">泰剧网</p>
+                    <h3 class="work-title">电影资源网页</h3>
+                    <p class="work-desc">电影资源合集</p>
                     <div class="work-hover">
                         查看详情 →
                     </div>
@@ -214,13 +206,73 @@
                         查看详情 →
                     </div>
                 </div>
+
+                <div class="work-card" data-link="https://juejin.cn/column/7448224551277969447">
+                    <div class="work-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3 class="work-title">Docker笔记合集</h3>
+                    <p class="work-desc">适用于Docker初学者-掘金社区</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+
+                <div class="work-card" data-link="https://juejin.cn/post/7456047754176643087">
+                    <div class="work-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="work-title">搭建 Harbor 私有镜像仓库</h3>
+                    <p class="work-desc">手把手教你搭建Harbor-掘金社区</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+
+                <div class="work-card" data-link="https://webgame.one/#/">
+                    <div class="work-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="work-title">摸鱼网站</h3>
+                    <p class="work-desc">网页游戏平台 webgame.one</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+
+                <div class="work-card" data-link="https://kdocs.cn/l/caIQQKIJ96K2">
+                    <div class="work-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 class="work-title">Windows优化工具</h3>
+                    <p class="work-desc">适用于Windows系统</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+
+                <div class="work-card" data-link="https://cloud.tencent.com/edu/learning/course-3080-55782">
+                    <div class="work-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="work-title">云服务操作管理培训</h3>
+                    <p class="work-desc">中级培训教材-适用于初学者</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
+
+                <div class="work-card" data-link="https://hcnsseyzsztm.feishu.cn/wiki/space/7490191375732867074">
+                    <div class="work-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="work-title">Openstack部署过程</h3>
+                    <p class="work-desc">飞书文档-openstack部署</p>
+                    <div class="work-hover">
+                        查看详情 →
+                    </div>
+                </div>
             </div>
-            
-            <!-- 
-            <div class="modify-note">
-                <p><i class="fas fa-info-circle"></i> 修改说明：所有作品卡片的跳转链接都在对应的data-link属性中，修改后需同步更新script.js</p>
-            </div>
-            -->
         </div>
     </section>
 
@@ -233,68 +285,65 @@
             </h2>
             <p class="section-subtitle">精心挑选的效率工具，点击卡片进入详情页面</p>
             
-            <div class="tools-container">
-                <!-- 工具卡片 -->
-                <div class="tools-grid">
-                    <!-- 6个工具卡片 - 跳转到pages文件夹中的页面 -->
+            <div class="tools-grid">
+                    <!-- 工具卡片 - 链接到子页面 -->
                     <a href="pages/page01.html" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
-                                <i class="fas fa-terminal"></i>
+                                <i class="fas fa-compass"></i>
                             </div>
                             <span class="tool-badge">热门</span>
                         </div>
-                        <h3 class="tool-title">代码转换器</h3>
-                        <p class="tool-desc">多种编程语言间的代码转换工具</p>
+                        <h3 class="tool-title">智能导航看板</h3>
+                        <p class="tool-desc">常用网站与资源导航</p>
                         <div class="tool-footer">
-                            <span class="tool-tag">开发</span>
+                            <span class="tool-tag">导航</span>
                             <span class="tool-arrow">→</span>
                         </div>
                     </a>
-                    
+
                     <a href="pages/page02.html" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
-                                <i class="fas fa-palette"></i>
+                                <i class="fas fa-book"></i>
                             </div>
-                            <span class="tool-badge">设计</span>
                         </div>
-                        <h3 class="tool-title">配色生成</h3>
-                        <p class="tool-desc">智能配色方案生成与导出</p>
+                        <h3 class="tool-title">技术资源导航</h3>
+                        <p class="tool-desc">技术社区与学习资源导航</p>
                         <div class="tool-footer">
-                            <span class="tool-tag">设计</span>
+                            <span class="tool-tag">导航</span>
                             <span class="tool-arrow">→</span>
                         </div>
                     </a>
-                    
+
                     <a href="pages/page03.html" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
-                                <i class="fas fa-compress-arrows-alt"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <h3 class="tool-title">图片优化</h3>
-                        <p class="tool-desc">在线图片压缩与格式转换</p>
+                        <h3 class="tool-title">网站快捷入口</h3>
+                        <p class="tool-desc">常用网站快捷入口</p>
                         <div class="tool-footer">
-                            <span class="tool-tag">效率</span>
+                            <span class="tool-tag">导航</span>
                             <span class="tool-arrow">→</span>
                         </div>
                     </a>
-                    
+
                     <a href="pages/page04.html" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
-                                <i class="fas fa-keyboard"></i>
+                                <i class="fas fa-circle"></i>
                             </div>
                         </div>
-                        <h3 class="tool-title">快捷键速查</h3>
-                        <p class="tool-desc">常用软件的快捷键参考</p>
+                        <h3 class="tool-title">动态小球超链接页面</h3>
+                        <p class="tool-desc">趣味动态小球导航</p>
                         <div class="tool-footer">
-                            <span class="tool-tag">效率</span>
+                            <span class="tool-tag">趣味</span>
                             <span class="tool-arrow">→</span>
                         </div>
                     </a>
-                    
+
                     <a href="pages/page05.html" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
@@ -302,22 +351,22 @@
                             </div>
                             <span class="tool-badge">实用</span>
                         </div>
-                        <h3 class="tool-title">装机必备软件</h3>
-                        <p class="tool-desc">精选装机必备软件推荐</p>
+                        <h3 class="tool-title">专业软件下载中心</h3>
+                        <p class="tool-desc">官方安全下载渠道</p>
                         <div class="tool-footer">
                             <span class="tool-tag">工具</span>
                             <span class="tool-arrow">→</span>
                         </div>
                     </a>
-                    
-                    <a href="pages/page06.html" class="tool-card">
+
+                    <a href="https://cli.im/" target="_blank" rel="noopener noreferrer" class="tool-card">
                         <div class="tool-header">
                             <div class="tool-icon">
                                 <i class="fas fa-qrcode"></i>
                             </div>
                         </div>
                         <h3 class="tool-title">二维码生成</h3>
-                        <p class="tool-desc">自定义内容二维码生成器</p>
+                        <p class="tool-desc">草料二维码在线生成</p>
                         <div class="tool-footer">
                             <span class="tool-tag">工具</span>
                             <span class="tool-arrow">→</span>
@@ -325,13 +374,6 @@
                     </a>
                 </div>
             </div>
-            
-            <!-- 
-            <div class="modify-note">
-                <p><i class="fas fa-info-circle"></i> 修改说明：工具卡片链接为相对路径，确保pages文件夹中有对应的page01.html到page06.html文件</p>
-            </div>
-            -->
-        </div>
     </section>
 
     <!-- 底部栏 -->
@@ -346,16 +388,18 @@
                         <i class="far fa-clock"></i>
                         <span id="currentTime">正在加载时间...</span>
                     </div>
-                    <div class="footer-old-version">
-                        <a href="https://xy12306.netlify.app/" target="_blank" rel="noopener noreferrer" class="old-version-btn">
-                            返回旧版
-                            <span class="tooltip">点击返回旧版页面</span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- 微信图片灯箱 -->
+    <div class="lightbox-overlay" id="weixinLightbox">
+        <div class="lightbox-content">
+            <img src="assets/images/weixin.png" alt="微信二维码" class="lightbox-img">
+            <p class="lightbox-hint">扫码添加微信</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

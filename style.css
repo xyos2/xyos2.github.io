@@ -80,7 +80,7 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-md);
 }
@@ -102,23 +102,8 @@ body {
 .section-subtitle {
     font-size: 1.1rem;
     color: var(--color-text-light);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
     max-width: 600px;
-}
-
-.modify-note {
-    margin-top: var(--space-lg);
-    padding: var(--space-md);
-    background-color: rgba(59, 130, 246, 0.1);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    color: var(--color-text-light);
-    font-size: 0.9rem;
-}
-
-.modify-note i {
-    color: var(--color-primary);
-    margin-right: var(--space-xs);
 }
 
 /* ===== 导航栏样式 ===== */
@@ -189,7 +174,7 @@ body.dark .theme-toggle i {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-sm) var(--space-md);
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -367,21 +352,21 @@ body.dark .theme-toggle i {
 /* ===== 我的作品区域 ===== */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-    margin-top: var(--space-lg);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
 }
 
 .work-card {
     background-color: var(--color-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -415,9 +400,9 @@ body.dark .theme-toggle i {
 }
 
 .work-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--color-secondary);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -441,9 +426,9 @@ body.dark .theme-toggle i {
 
 .work-hover {
     position: absolute;
-    bottom: var(--space-lg);
-    left: var(--space-lg);
-    right: var(--space-lg);
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
     color: var(--color-primary);
     font-weight: 500;
     opacity: 0;
@@ -463,15 +448,11 @@ body.dark .theme-toggle i {
     background: linear-gradient(to bottom, transparent, var(--color-bg));
 }
 
-.tools-container {
-    margin-top: var(--space-xl);
-}
-
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-    margin-top: var(--space-md);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
     margin-bottom: var(--space-lg);
 }
 
@@ -479,15 +460,14 @@ body.dark .theme-toggle i {
     background-color: var(--color-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
-    display: block;
-    height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 180px;
 }
 
 .tool-card:hover {
@@ -500,11 +480,11 @@ body.dark .theme-toggle i {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
 }
 
 .tool-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--color-primary);
 }
 
@@ -527,7 +507,7 @@ body.dark .theme-toggle i {
 .tool-desc {
     color: var(--color-text-light);
     font-size: 0.9rem;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
 }
 
 .tool-footer {
@@ -576,57 +556,6 @@ body.dark .theme-toggle i {
     gap: var(--space-md);
 }
 
-.old-version-btn {
-    display: inline-block;
-    position: relative;
-    font-size: 0.8rem;
-    color: var(--color-text-light);
-    text-decoration: none;
-    padding: 0.3rem 0.8rem;
-    background-color: var(--color-card);
-    border: 1px solid var(--color-border);
-    border-radius: 0.3rem;
-    transition: all 0.3s ease;
-}
-
-.old-version-btn:hover {
-    background-color: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-}
-
-.tooltip {
-    position: absolute;
-    bottom: 100%;
-    right: 0;
-    background-color: var(--color-primary);
-    color: white;
-    padding: 0.3rem 0.6rem;
-    border-radius: 0.3rem;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    margin-bottom: 0.5rem;
-}
-
-.tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: 0.5rem;
-    border-width: 0.3rem;
-    border-style: solid;
-    border-color: var(--color-primary) transparent transparent transparent;
-}
-
-.old-version-btn:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-}
-
 .footer-time {
     display: flex;
     align-items: center;
@@ -663,19 +592,11 @@ body.dark .theme-toggle i {
     .hero-title {
         font-size: 2.8rem;
     }
-    
-    .works-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .tools-container {
-        grid-template-columns: 250px 1fr;
-    }
-    
+
     .nav-menu {
         gap: 1rem;
     }
-    
+
     .nav-link {
         font-size: 0.9rem;
         padding: 0.5rem 0.7rem;
@@ -722,15 +643,11 @@ body.dark .theme-toggle i {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
-    
+
     .work-card {
-        height: 220px;
+        height: 180px;
     }
-    
-    .tools-container {
-        grid-template-columns: 1fr;
-    }
-    
+
     .tools-grid {
         grid-template-columns: 1fr;
     }
@@ -769,7 +686,59 @@ body.dark .theme-toggle i {
     }
     
     .work-card {
-        padding: var(--space-md);
-        height: 200px;
+        padding: var(--space-sm);
+        height: 170px;
     }
+}
+
+/* ===== 微信图片灯箱 ===== */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    cursor: default;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-overlay.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.lightbox-hint {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
 }

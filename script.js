@@ -1,3 +1,8 @@
+// 禁用浏览器自动恢复滚动位置，由页面自行控制
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化移动端菜单
@@ -20,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 初始化夜间模式切换
     initThemeToggle();
+
+    // 初始化微信灯箱
+    initWeixinLightbox();
 });
 
 // 夜间模式切换功能
@@ -177,11 +185,6 @@ function initWorkCards() {
         card.setAttribute('role', 'button');
         card.setAttribute('aria-label', '查看项目详情');
     });
-    
-    // 控制台提示
-    console.log('📝 修改提示：如果要更改作品卡片的跳转链接，请修改：');
-    console.log('1. HTML中每个work-card元素的data-link属性');
-    console.log('2. 当前跳转链接为：https://juejin.cn/user/2232425500384467/posts');
 }
 
 // 向下探索按钮点击事件
@@ -308,9 +311,42 @@ function initParallax() {
     }
 }
 
+// 微信图片灯箱
+function initWeixinLightbox() {
+    const lightbox = document.getElementById('weixinLightbox');
+    const btns = [document.getElementById('weixinBtn'), document.getElementById('weixinBtnMobile')];
+    const content = lightbox ? lightbox.querySelector('.lightbox-content') : null;
+
+    btns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (lightbox) {
+                    lightbox.style.display = 'flex';
+                    requestAnimationFrame(() => lightbox.classList.add('active'));
+                }
+            });
+        }
+    });
+
+    if (lightbox) {
+        // 点击背景关闭
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+            }
+        });
+
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+            }
+        });
+    }
+}
+
 // 控制台提示信息
 console.log('🚀 网站初始化完成！');
-console.log('📌 需要修改的第三方链接位置：');
-console.log('1. 导航栏中的"我的笔记"、"微信"、"抖音"链接');
-console.log('2. 所有作品卡片的data-link属性');
-console.log('3. 修改后请同步更新相关的事件处理函数');
