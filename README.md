@@ -105,14 +105,7 @@ git push origin main
 ```
 > 将本地 `main` 分支的提交推送到 GitHub 远程仓库。推送后 GitHub Pages 会自动部署，稍等片刻网站即可生效。
 
-### 完整流程一览
-```bash
-git status                                          # 第1步：查看修改
-git add index.html script.js style.css              # 第2步：添加文件
-git commit -m "修改提交说明"                         # 第3步：提交
-git push origin main                                # 第4步：推送 推送
-```
 
 ## 许可证
 
-© 2025 星宇·航图 | XY's Blog 保留所有权利
+© 2026 星宇·航图 | XY's Blog 保留所有权利
