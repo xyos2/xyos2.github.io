@@ -110,7 +110,7 @@ git push origin main
 git status                                          # 第1步：查看修改
 git add index.html script.js style.css              # 第2步：添加文件
 git commit -m "修改提交说明"                         # 第3步：提交
-git push origin main                                # 第4步：推送
+git push origin main                                # 第4步：推送 推送
 ```
 
 ## 许可证
