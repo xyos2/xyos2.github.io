@@ -77,6 +77,42 @@
 - 抖音: [https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE](https://www.douyin.com/user/MS4wLjABAAAAhY3iv3YOd2fQJqtSD70LpiLDw-oWAueJDPw_lHQogqE)
 - QQ；1745818515
 
+## 推送教程
+
+以下命令用于将本地修改推送到 GitHub 仓库（`origin` → `https://github.com/xyos2/xyos2.github.io.git`）。
+
+### 1. 查看当前修改状态
+```bash
+git status
+```
+> 查看哪些文件被修改、新增或删除，确认改动内容无误。
+
+### 2. 添加修改到暂存区
+```bash
+git add index.html script.js style.css
+```
+> 将本次修改的文件添加到暂存区。按需替换文件名，或使用 `git add .` 添加所有修改（注意不要误提交敏感文件）。
+
+### 3. 提交修改
+```bash
+git commit -m "修改提交说明"
+```
+> 将暂存区的内容创建为一次提交记录。`-m` 后面的引号内填写本次修改的说明，例如 `"修复夜间模式切换文字、手机端两列布局、添加教程文档按钮"`。
+
+### 4. 推送到远程仓库
+```bash
+git push origin main
+```
+> 将本地 `main` 分支的提交推送到 GitHub 远程仓库。推送后 GitHub Pages 会自动部署，稍等片刻网站即可生效。
+
+### 完整流程一览
+```bash
+git status                                          # 第1步：查看修改
+git add index.html script.js style.css              # 第2步：添加文件
+git commit -m "修改提交说明"                         # 第3步：提交
+git push origin main                                # 第4步：推送
+```
+
 ## 许可证
 
 © 2025 星宇·航图 | XY's Blog 保留所有权利
