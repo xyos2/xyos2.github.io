@@ -58,6 +58,13 @@ function initThemeToggle() {
                 icon.classList.add('fa-moon');
             }
         });
+        // 更新移动端按钮文字
+        if (mobileThemeToggle) {
+            const textNode = Array.from(mobileThemeToggle.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+            if (textNode) {
+                textNode.textContent = isDark ? ' 日间模式' : ' 夜间模式';
+            }
+        }
     }
     
     // 主题切换逻辑

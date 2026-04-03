@@ -640,7 +640,7 @@ body.dark .theme-toggle i {
     }
     
     .works-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
     }
 
@@ -649,7 +649,7 @@ body.dark .theme-toggle i {
     }
 
     .tools-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .hero::before,
@@ -693,6 +693,14 @@ body.dark .theme-toggle i {
     .work-card {
         padding: var(--space-sm);
         height: 170px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
     }
 
     .work-title {
