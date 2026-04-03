@@ -199,7 +199,7 @@ body.dark .theme-toggle i {
 
 .nav-menu {
     display: flex;
-    gap: 1.2rem; /* 减少间距，让布局更合理 */
+    gap: 0.6rem; /* 缩小图标间距 */
     align-items: center;
 }
 
@@ -209,7 +209,7 @@ body.dark .theme-toggle i {
     font-weight: 500;
     font-size: 0.95rem; /* 稍微减小字体 */
     transition: all 0.3s ease;
-    padding: 0.6rem 0.8rem;
+    padding: 0.6rem 0.5rem;
     border-radius: var(--radius-sm);
     white-space: nowrap;
 }
@@ -594,7 +594,7 @@ body.dark .theme-toggle i {
     }
 
     .nav-menu {
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     .nav-link {
@@ -605,7 +605,7 @@ body.dark .theme-toggle i {
 
 @media (max-width: 900px) {
     .nav-menu {
-        gap: 0.8rem;
+        gap: 0.4rem;
     }
     
     .nav-link {
