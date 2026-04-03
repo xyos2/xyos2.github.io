@@ -651,6 +651,11 @@ body.dark .theme-toggle i {
     .tools-grid {
         grid-template-columns: 1fr;
     }
+
+    .hero::before,
+    .hero::after {
+        display: none;
+    }
     
     .footer-content {
         flex-direction: column;
@@ -688,6 +693,26 @@ body.dark .theme-toggle i {
     .work-card {
         padding: var(--space-sm);
         height: 170px;
+    }
+
+    .work-title {
+        font-size: 1.2rem;
+    }
+
+    .tool-title {
+        font-size: 1.1rem;
+    }
+
+    .tool-icon {
+        font-size: 1.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
     }
 }
 

@@ -39,3 +39,9 @@ body {
   transform: scale(1.2);
   box-shadow: 0 0 25px rgba(255, 255, 255, 1);
 }
+
+@media (max-width: 768px) {
+  .ball {
+    font-size: 12px;
+  }
+}
